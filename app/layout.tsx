@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         Professor Inácio Silva
       </h1>
       <p className="text-lg mt-2 text-white">
-        Seu professor de matemática, educação e nobresa
+        Seu professor de matemática, educação e nobreza
       </p>
     </div>
   </div>
