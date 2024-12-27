@@ -6,7 +6,7 @@ export default function AboutSection() {
         Meu nome é <strong>Inácio Frota da Silva</strong>, professor e escritor. 
         Escolhi não ser professor de rede pública e preferi a liberdade do ensino 
         pela internet para estudantes qualificados, que valorizam o ensino, princípios,
-        qualificação profissional, formação de caráter, de família e nobresa.
+        qualificação profissional, formação de caráter, de família e nobreza.
       </p>
       <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mt-4 text-justify">
         Dedico-me a compartilhar conhecimentos e inspirações através das minhas obras e da
