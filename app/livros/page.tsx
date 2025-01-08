@@ -15,6 +15,7 @@ const books = [
     image: '/images/capaalgebra.jpg', // Substitua pelo caminho da capa do livro
     link: 'https://www.amazon.com.br/dp/B0DPXYND6Z', // Link para o livro na Amazon
   },
+  
 ];
 
 export default function BooksPage() {
@@ -58,7 +59,7 @@ export default function BooksPage() {
             rel="noopener noreferrer"
             className="text-blue-500 hover:underline"
           >
-            Leia mais na Amazon.
+            Saiba mais sobre o livro
           </a>
         </p>
       </div>

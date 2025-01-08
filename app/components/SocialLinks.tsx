@@ -21,6 +21,15 @@ export default function SocialLinks() {
       <p className="text-lg font-semibold text-gray-700 mb-4">
         Siga nossas redes sociais e fique por dentro das novidades!
       </p>
+      <p className="text-lg font-light text-gray-700 mb-4">
+        <strong>Youtube</strong>: aulas completas e assuntos explanados de modo detalhado
+      </p>
+      <p className="text-lg font-light text-gray-700 mb-4">
+        <strong>Facebook</strong> e <strong>Instagram</strong>: vídeos curtos de matemática e de divulgação
+      </p>
+      <p className="text-lg font-light text-gray-700 mb-4">
+        <strong>Tiktok</strong> e <strong>Kwai</strong>: vídeos curtos com histórias e curiosidades de matemática
+      </p>
       <div className="flex justify-center gap-6">
         {links.map(({ href, icon, label }) => (
           <a
