@@ -15,7 +15,12 @@ const images = [
     link: 'https://www.amazon.com.br/dp/B0DPXYND6Z',
     description: 'Para quem deseja explorar o fascinante universo da álgebra e da teoria dos números voltado para autodidatas e famílias que praticam homeschooling',
   },
-  
+  {
+    src: '/images/capafinanceiro.jpeg',
+    alt: 'Matemática e educação financeira para autodidatas e homeschooling',
+    link: 'https://www.amazon.com.br/dp/B0DV9Y4S8R',
+    description: 'O mais completo livro de Educação financeira para autodidatas e famílias que praticam homeschooling. Um guia para estruturar sua vida financeira',
+  },
 ];
 
 export default function Carousel() {
