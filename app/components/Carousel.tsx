@@ -36,7 +36,7 @@ export default function Carousel() {
   return (
     <section className="w-full max-w-4xl mx-auto mt-8">
       {/* Título */}
-      <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">Meus livros na Amazon</h2>
+      <h2 className="text-3xl mb-6 text-center">Meus livros na Amazon</h2>
       
       <div className="relative mx-auto h-[60vh] aspect-[2/3] overflow-hidden rounded-lg shadow-lg">
         {/* Imagens no Carrossel */}
@@ -65,7 +65,7 @@ export default function Carousel() {
               </a>
               
               {/* Descrição da Imagem */}
-              <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 text-white text-sm p-4">
+              <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-sm p-4">
                 {image.description}
               </div>
             </div>

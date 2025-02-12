@@ -34,7 +34,7 @@ const books = [
 export default function BooksPage() {
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold text-blue-600 mb-6">Meus Livros</h1>
+      <h1 className="text-3xl mb-6">Meus Livros</h1>
       <div className="space-y-8">
   {books.map((book) => (
     <div key={book.id} className="flex gap-6 items-start">
@@ -54,7 +54,7 @@ export default function BooksPage() {
 
       {/* Detalhes do Livro */}
       <div>
-        <h2 className="text-2xl font-semibold text-blue-600">
+        <h2 className="text-3xl mb-6 text-center">
           <a
             href={book.link}
             target="_blank"

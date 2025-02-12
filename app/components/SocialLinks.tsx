@@ -18,9 +18,9 @@ export default function SocialLinks() {
 
   return (
     <div className="text-center mt-8">
-      <p className="text-lg font-semibold text-gray-700 mb-4">
+      <h2 className="text-3xl mb-6 text-center">
         Siga nossas redes sociais e fique por dentro das novidades!
-      </p>
+      </h2>
       <p className="text-lg font-light text-gray-700 mb-4">
         <strong>Youtube</strong>: aulas completas e assuntos explanados de modo detalhado
       </p>

@@ -50,11 +50,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
           <div className="container relative z-10 mx-auto flex flex-col items-center">
             <a href="/" className="flex items-center space-x-4">
-              <h1 className="text-5xl font-extrabold tracking-wide text-white drop-shadow-md">
+              <h1 className="text-5xl tracking-wide drop-shadow-md">
                 Professor Inácio
               </h1>
             </a>
-            <p className="text-lg mt-2 text-yellow-300">
+            <p className="text-lg text-white mt-2">
               Seu professor de matemática, educação e nobreza
             </p>
           </div>

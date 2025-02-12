@@ -2,7 +2,7 @@ export default function AboutSection() {
   return (
     <section className="mt-16 flex flex-col items-center text-center md:text-left max-w-5xl mx-auto">
       {/* Título */}
-      <h2 className="text-3xl font-bold mb-6 text-center">Sobre</h2>
+      <h2 className="text-3xl mb-6 text-center">Sobre</h2>
 
       {/* Conteúdo: Imagem e Texto */}
       <div className="flex flex-col md:flex-row items-center md:items-center justify-center w-full">

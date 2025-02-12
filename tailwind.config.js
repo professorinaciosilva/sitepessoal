@@ -15,6 +15,9 @@ module.exports = {
       colors: {
         softGold: '#C9A959', // Um dourado metálico suave
       },
+      fontFamily:{
+        'glamour':['glamour','serif'],
+      },
     },
   },
   plugins: [],

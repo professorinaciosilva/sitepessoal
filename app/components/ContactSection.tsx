@@ -21,7 +21,7 @@ export default function ContactSection() {
 
   return (
     <section className="mt-16 text-center">
-      <h2 className="text-3xl font-bold text-blue-600 mb-4">Contato</h2>
+      <h2 className="text-3xl mb-6 text-center">Contato</h2>
       <div className="text-lg text-gray-700">
         {/* Email protegido */}
         <p>

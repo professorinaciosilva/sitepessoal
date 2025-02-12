@@ -59,7 +59,7 @@ export default function TextTabs() {
   return (
     <div className="max-w-4xl mx-auto mt-8 p-6 shadow-lg rounded-lg">
       {/* Título */}
-      <h2 className="text-3xl font-bold mb-6 text-center">Artigos</h2>
+      <h2 className="text-3xl mb-6 text-center">Artigos</h2>
 
       {/* Abas */}
       <div className="flex border-b border-gray-300">
@@ -69,8 +69,8 @@ export default function TextTabs() {
             onClick={() => setSelectedTab(index)}
             className={`px-4 py-2 text-sm font-medium ${
               selectedTab === index
-                ? 'bg-yellow-500 text-gray-900 rounded-t-md'
-                : 'text-white hover:bg-yellow-500 hover:text-gray-900'
+                ? 'bg-white text-gray-900 rounded-t-md hover:bg-white'
+                : 'text-gray-900 bg-yellow-200 hover:bg-white hover:text-gray-900'
             }`}
           >
             {tab.label}
@@ -80,7 +80,7 @@ export default function TextTabs() {
 
       {/* Conteúdo da aba selecionada */}
       <div className="mt-4 text-justify whitespace-pre-wrap leading-relaxed">
-        <p className="text-lg">{tabs[selectedTab].content}</p>
+        <p className="text-lg text-gray-700">{tabs[selectedTab].content}</p>
       </div>
     </div>
   );
