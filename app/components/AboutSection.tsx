@@ -8,7 +8,7 @@ export default function AboutSection() {
       <div className="flex flex-col md:flex-row items-center md:items-center justify-center w-full">
         {/* Foto de Perfil */}
         <div className="flex-shrink-0 md:mr-8 self-center">
-          <div className="w-56 h-56 md:w-64 md:h-64 rounded-full shadow-lg bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+          <div className="w-56 h-56 md:w-64 md:h-64 rounded-full shadow-lg bg-gradient-to-r from-blue-500 via-gray-400 to-pink-100">
             <img
               src="/images/fotoperfil.png"
               alt="Foto de Inácio Frota da Silva"
