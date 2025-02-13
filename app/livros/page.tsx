@@ -47,14 +47,14 @@ export default function BooksPage() {
         {books.map((book) => (
           <div
             key={book.id}
-            className="flex flex-col md:flex-row gap-6 items-start"
+            className="flex flex-col md:flex-row gap-6 items-center md:items-start"
           >
             {/* Capa do Livro com Link */}
             <a
               href={book.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-shrink-0"
+              className="flex-shrink-0 mx-auto md:mx-0"
             >
               <img
                 src={book.image}
@@ -91,6 +91,7 @@ export default function BooksPage() {
         ))}
       </div>
     </div>
+
 
   );
 }
