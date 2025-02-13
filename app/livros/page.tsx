@@ -37,9 +37,6 @@ const books = [
     link: 'https://www.amazon.com.br/dp/B0DX3GFGLH', // Link para o livro na Amazon
   },
 
-
-
-
 ];
 
 export default function BooksPage() {
@@ -47,50 +44,53 @@ export default function BooksPage() {
     <div className="max-w-4xl mx-auto py-8 px-4">
       <h2 className="text-3xl mb-6 text-center">Meus Livros</h2>
       <div className="space-y-8">
-  {books.map((book) => (
-    <div key={book.id} className="flex gap-6 items-start">
-      {/* Capa do Livro com Link */}
-      <a
-        href={book.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-shrink-0"
-      >
-        <img
-          src={book.image}
-          alt={book.title}
-          className="w-40 h-auto rounded-lg shadow-lg hover:scale-105 transition-transform"
-        />
-      </a>
+        {books.map((book) => (
+          <div
+            key={book.id}
+            className="flex flex-col md:flex-row gap-6 items-start"
+          >
+            {/* Capa do Livro com Link */}
+            <a
+              href={book.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0"
+            >
+              <img
+                src={book.image}
+                alt={book.title}
+                className="w-40 h-auto rounded-lg shadow-lg hover:scale-105 transition-transform"
+              />
+            </a>
 
-      {/* Detalhes do Livro */}
-      <div>
-        <h2 className="text-3xl mb-6 text-center">
-          <a
-            href={book.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-700 hover:underline"
-          >
-            {book.title}
-          </a>
-        </h2>
-        <p className="text-gray-700 mt-2">
-          {book.description}{' '}
-          <a
-            href={book.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:underline"
-          >
-            Saiba mais sobre o livro
-          </a>
-        </p>
+            {/* Detalhes do Livro */}
+            <div>
+              <h3 className="text-2xl mb-4 text-center">
+                <a
+                  href={book.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 hover:underline"
+                >
+                  {book.title}
+                </a>
+              </h3>
+              <p className="text-gray-700 mt-2">
+                {book.description}{' '}
+                <a
+                  href={book.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:underline"
+                >
+                  Saiba mais sobre o livro
+                </a>
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
-  ))}
-</div>
 
-    </div>
   );
 }
