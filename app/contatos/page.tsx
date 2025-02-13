@@ -23,7 +23,7 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-3xl font-bold text-blue-600 mb-8 text-center">Entre em Contato</h1>
+      <h2 className="text-3xl mb-6 text-center">Entre em Contato</h2>
       
       <div className="w-full max-w-md space-y-8">
         {/* Informações de Contato */}
@@ -58,7 +58,7 @@ export default function ContactPage() {
 
         {/* Redes Sociais */}
         <div className="bg-white shadow-md rounded-lg p-6 text-center">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Nossas Redes Sociais</h2>
+          <h2 className="text-3xl mb-6 text-center">Nossas Redes Sociais</h2>
           <SocialLinks />
         </div>
       </div>

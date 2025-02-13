@@ -29,12 +29,23 @@ const books = [
     image: '/images/capafinanceiro.jpeg', // Substitua pelo caminho da capa do livro
     link: 'https://www.amazon.com/dp/B0DVJ2Z1FD', // Link para o livro na Amazon
   },
+  {
+    id: 5,
+    title: 'E-book: Bitcoin para autodidatas e homeschooling',
+    description: 'O guia essencial sobre Bitcoin para iniciantes e entusiastas. Entenda a tecnologia, segurança e como usá-lo na nova economia digital',
+    image: '/images/capabitcoin.jpg', // Substitua pelo caminho da capa do livro
+    link: 'https://www.amazon.com.br/dp/B0DX3GFGLH', // Link para o livro na Amazon
+  },
+
+
+
+
 ];
 
 export default function BooksPage() {
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
-      <h1 className="text-3xl mb-6">Meus Livros</h1>
+      <h2 className="text-3xl mb-6 text-center">Meus Livros</h2>
       <div className="space-y-8">
   {books.map((book) => (
     <div key={book.id} className="flex gap-6 items-start">
@@ -59,7 +70,7 @@ export default function BooksPage() {
             href={book.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:underline"
+            className="text-gray-700 hover:underline"
           >
             {book.title}
           </a>

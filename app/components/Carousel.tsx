@@ -21,6 +21,12 @@ const images = [
     link: 'https://www.amazon.com.br/dp/B0DV9Y4S8R',
     description: 'O mais completo livro de Educação financeira para autodidatas e famílias que praticam homeschooling. Um guia para estruturar sua vida financeira',
   },
+  {
+    src: '/images/capabitcoin.jpg',
+    alt: 'Bitcoin para autodidatas e homeschooling',
+    link: 'https://www.amazon.com.br/dp/B0DX3GFGLH',
+    description: 'O guia essencial sobre Bitcoin para iniciantes e entusiastas. Entenda a tecnologia, segurança e como usá-lo na nova economia digital.',
+  },
 ];
 
 export default function Carousel() {
