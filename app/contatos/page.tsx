@@ -58,7 +58,6 @@ export default function ContactPage() {
 
         {/* Redes Sociais */}
         <div className="bg-white shadow-md rounded-lg p-6 text-center">
-          <h2 className="text-3xl mb-6 text-center">Nossas Redes Sociais</h2>
           <SocialLinks />
         </div>
       </div>

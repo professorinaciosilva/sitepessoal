@@ -37,7 +37,7 @@ export default function SocialLinks() {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 flex items-center justify-center bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700 transition-all"
+            className="w-12 h-12 flex items-center justify-center bg-blue-600 text-white rounded-full shadow-md hover:text-white"
             aria-label={label}
           >
             {icon}

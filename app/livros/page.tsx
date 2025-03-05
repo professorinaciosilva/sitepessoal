@@ -3,35 +3,28 @@
 const books = [
   {
     id: 1,
-    title: 'E-book: Logaritmos para autodidatas e homeschooling',
+    title: 'Logaritmos para autodidatas e homeschooling',
     description: 'Para fornecer uma compreensão abrangente e acessível de Logaritmos para autodidatas ou para aqueles envolvidos no ensino em casa (homeschooling)',
     image: '/images/capalogaritmo.jpg', // Substitua pelo caminho da capa do livro
     link: 'https://www.amazon.com.br/dp/B0DF5W98WT', // Link para o livro na Amazon
   },
   {
     id: 2,
-    title: 'E-book: Álgebra e teoria dos números para autodidatas e homeschooling',
+    title: 'Álgebra e teoria dos números para autodidatas e homeschooling',
     description: 'Para quem deseja explorar o fascinante universo da álgebra e da teoria dos números voltado para autodidatas e famílias que praticam homeschooling',
     image: '/images/capaalgebra.jpg', // Substitua pelo caminho da capa do livro
     link: 'https://www.amazon.com.br/dp/B0DPXYND6Z', // Link para o livro na Amazon
   },
   {
     id: 3,
-    title: 'E-book: matemática e educação financeira para autodidatas e homeschooling',
+    title: 'Matemática e educação financeira para autodidatas e homeschooling',
     description: 'O mais completo livro de Educação financeira para autodidatas e famílias que praticam homeschooling. Um guia para estruturar sua vida financeira',
     image: '/images/capafinanceiro.jpeg', // Substitua pelo caminho da capa do livro
     link: 'https://www.amazon.com.br/dp/B0DV9Y4S8R', // Link para o livro na Amazon
   },
   {
     id: 4,
-    title: 'Livro físico: matemática e educação financeira para autodidatas e homeschooling',
-    description: 'O mais completo livro de Educação financeira para autodidatas e famílias que praticam homeschooling. Um guia para estruturar sua vida financeira',
-    image: '/images/capafinanceiro.jpeg', // Substitua pelo caminho da capa do livro
-    link: 'https://www.amazon.com/dp/B0DVJ2Z1FD', // Link para o livro na Amazon
-  },
-  {
-    id: 5,
-    title: 'E-book: Bitcoin para autodidatas e homeschooling',
+    title: 'Bitcoin para autodidatas e homeschooling',
     description: 'O guia essencial sobre Bitcoin para iniciantes e entusiastas. Entenda a tecnologia, segurança e como usá-lo na nova economia digital',
     image: '/images/capabitcoin.jpg', // Substitua pelo caminho da capa do livro
     link: 'https://www.amazon.com.br/dp/B0DX3GFGLH', // Link para o livro na Amazon

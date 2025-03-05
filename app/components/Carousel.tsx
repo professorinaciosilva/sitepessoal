@@ -1,5 +1,4 @@
 'use client';
-
 import { useState, useEffect } from 'react';
 
 const images = [
@@ -31,9 +30,8 @@ const images = [
 
 export default function Carousel() {
   const [current, setCurrent] = useState(0);
-
   const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length);
-
+  
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
@@ -41,58 +39,99 @@ export default function Carousel() {
 
   return (
     <section className="w-full max-w-4xl mx-auto mt-8">
-      {/* Título */}
       <h2 className="text-3xl mb-6 text-center">Meus livros na Amazon</h2>
       
-      <div className="relative mx-auto h-[60vh] aspect-[2/3] overflow-hidden rounded-lg shadow-lg">
-        {/* Imagens no Carrossel */}
-        <div
-          className="flex transition-transform duration-1000 ease-in-out"
-          style={{
-            transform: `translateX(-${current * 100}%)`,
-          }}
-        >
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className="w-full flex-shrink-0 h-full relative"
-            >
-              <a
-              href={image.link}
+      <div className="flex flex-col md:flex-row gap-6">
+        {/* Último Lançamento (Latest Release) Section */}
+        <div className="w-full md:w-1/3 flex flex-col">
+          <h3 className="text-2xl mb-6 text-center">Último Lançamento</h3>
+          <div className="relative mx-auto h-[60vh] aspect-[2/3] overflow-hidden rounded-lg shadow-lg">
+            <a 
+              href="https://www.amazon.com.br/dp/B0DX3GFGLH" 
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full h-full"
-              >
-                <img
-                src={image.src}
-                alt={image.alt}
+            >
+              <img 
+                src="/images/capabitcoin.jpg" 
+                alt="Capa do Último Lançamento" 
                 className="w-full h-full object-contain"
-                />
-              </a>
-              
-              {/* Descrição da Imagem */}
+              />
               <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-sm p-4">
-                {image.description}
+                O guia essencial sobre Bitcoin para iniciantes e entusiastas. Entenda a tecnologia, segurança e como usá-lo na nova economia digital
               </div>
-            </div>
-          ))}
+            </a>
+          </div>
         </div>
-        {/* Botões de Navegação */}
-        <button
-          onClick={() => setCurrent((prev) => (prev - 1 + images.length) % images.length)}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700"
-        >
-          &#8592;
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700"
-        >
-          &#8594;
-        </button>
+
+        {/* Carousel Section */}
+        <div className="w-full md:w-1/2 flex flex-col">
+          <h3 className="text-2xl mb-6 text-center">Catálogo</h3>
+          <div className="relative mx-auto h-[60vh] aspect-[2/3] overflow-hidden rounded-lg shadow-lg">
+            <div
+              className="flex transition-transform duration-1000 ease-in-out"
+              style={{
+                transform: `translateX(-${current * 100}%)`,
+              }}
+            >
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  className="w-full flex-shrink-0 h-full relative"
+                >
+                  <a
+                    href={image.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full h-full"
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-contain"
+                    />
+                    <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-sm p-4">
+                      {image.description}
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={() => setCurrent((prev) => (prev - 1 + images.length) % images.length)}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700"
+            >
+              &#8592;
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700"
+            >
+              &#8594;
+            </button>
+          </div>
+        </div>
+
+        {/* Upcoming Book Section */}
+        <div className="w-full md:w-1/3 flex flex-col">
+          <h3 className="text-2xl mb-6 text-center">Aguarde</h3>
+          <div className="relative mx-auto h-[60vh] aspect-[2/3] overflow-hidden rounded-lg shadow-lg">
+            <a 
+              href="#" 
+              className="block w-full h-full"
+            >
+              <img 
+                src="/images/capainteligencia.jpg" 
+                alt="Próximo livro em breve" 
+                className="w-full h-full object-contain"
+              />
+              <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-sm p-4">
+                Livro em desenvolvimento
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
-
-
