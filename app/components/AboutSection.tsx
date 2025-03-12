@@ -20,7 +20,7 @@ export default function AboutSection() {
         {/* Texto */}
         <div className="mt-6 md:mt-0 flex flex-col justify-center">
           <p className="text-lg text-gray-700 leading-relaxed max-w-3xl text-justify">
-	Meu nome é <strong>Inácio Frota da Silva</strong>, professor e escritor. Formado pela Universidade Federal do Amazonas (UFAM). Escolhi não ser professor de rede pública ou privada no Brasil, preferi a liberdade do ensino pela internet para estudantes qualificados: que valorizam o ensino, princípios, formação profissional, caráter, família e nobreza.
+	Meu nome é <strong>Inácio Frota da Silva</strong>, professor e escritor. Formado pela Universidade Federal do Amazonas (UFAM). Prezo pela liberdade do ensino pela internet para estudantes qualificados: que valorizam o ensino, princípios, formação profissional, caráter, família e nobreza.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mt-4 text-justify">
             Dedico-me a compartilhar conhecimentos e inspirações através das minhas obras e da educação para suporte às famílias que praticam ensino em casa (homeschooling) com a finalidade de reestruturar a nobreza. A elite moral que possui a função de liderar para um Brasil melhor. Acredito na próxima geração que há de vir para resgatar a grandeza de nossa sociedade.

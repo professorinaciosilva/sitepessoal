@@ -40,7 +40,7 @@ export default function Carousel() {
   return (
     <section className="w-full max-w-4xl mx-auto mt-8">
       <h2 className="text-3xl mb-6 text-center">Meus livros na Amazon</h2>
-      
+     
       <div className="flex flex-col md:flex-row gap-6">
         {/* Último Lançamento (Latest Release) Section */}
         <div className="w-full md:w-1/3 flex flex-col">
