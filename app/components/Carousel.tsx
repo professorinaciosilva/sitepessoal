@@ -26,6 +26,12 @@ const images = [
     link: 'https://www.amazon.com.br/dp/B0DX3GFGLH',
     description: 'O guia essencial sobre Bitcoin para iniciantes e entusiastas. Entenda a tecnologia, segurança e como usá-lo na nova economia digital.',
   },
+  {
+    src: '/images/capainteligencia.jpg',
+    alt: 'Inteligência Artificial e Automação para Usuários',
+    link: 'https://www.amazon.com.br/dp/B0F1C9WF6D',
+    description: 'O Guia de Inteligência Artificial para Iniciantes e Entusiastas: Descubra como a tecnologia funciona, aprenda a utilizá-la, explore dicas de prompts e saiba como se posicionar neste novo mercado de trabalho.',
+  },
 ];
 
 export default function Carousel() {
@@ -47,18 +53,18 @@ export default function Carousel() {
           <h3 className="text-2xl mb-6 text-center">Último Lançamento</h3>
           <div className="relative mx-auto h-[60vh] aspect-[2/3] overflow-hidden rounded-lg shadow-lg">
             <a 
-              href="https://www.amazon.com.br/dp/B0DX3GFGLH" 
+              href="https://www.amazon.com.br/dp/B0F1C9WF6D" 
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full h-full"
             >
               <img 
-                src="/images/capabitcoin.jpg" 
-                alt="Capa do Último Lançamento" 
+                src="/images/capainteligencia.jpg" 
+                alt="Inteligência Artificial e Automação para Usuários" 
                 className="w-full h-full object-contain"
               />
               <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-sm p-4">
-                O guia essencial sobre Bitcoin para iniciantes e entusiastas. Entenda a tecnologia, segurança e como usá-lo na nova economia digital
+                O Guia de Inteligência Artificial para Iniciantes e Entusiastas: Descubra como a tecnologia funciona, aprenda a utilizá-la, explore dicas de prompts e saiba como se posicionar neste novo mercado de trabalho.
               </div>
             </a>
           </div>
@@ -114,19 +120,21 @@ export default function Carousel() {
 
         {/* Upcoming Book Section */}
         <div className="w-full md:w-1/3 flex flex-col">
-          <h3 className="text-2xl mb-6 text-center">Aguarde</h3>
+          <h3 className="text-2xl mb-6 text-center">Mais Vendido</h3>
           <div className="relative mx-auto h-[60vh] aspect-[2/3] overflow-hidden rounded-lg shadow-lg">
             <a 
-              href="#" 
+              href="https://www.amazon.com.br/dp/B0DV9Y4S8R" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="block w-full h-full"
             >
               <img 
-                src="/images/capainteligencia.jpg" 
-                alt="Próximo livro em breve" 
+                src="/images/capafinanceiro.jpeg" 
+                alt="Mais Vendido" 
                 className="w-full h-full object-contain"
               />
               <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-sm p-4">
-                Livro em desenvolvimento
+                Matemática e educação financeira para autodidatas e homeschooling
               </div>
             </a>
           </div>

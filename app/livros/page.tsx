@@ -29,6 +29,13 @@ const books = [
     image: '/images/capabitcoin.jpg', // Substitua pelo caminho da capa do livro
     link: 'https://www.amazon.com.br/dp/B0DX3GFGLH', // Link para o livro na Amazon
   },
+  {
+    id: 5,
+    title: 'Inteligência Artificial e Automação para Usuários',
+    description: 'O Guia de Inteligência Artificial para Iniciantes e Entusiastas: Descubra como a tecnologia funciona, aprenda a utilizá-la, explore dicas de prompts e saiba como se posicionar neste novo mercado de trabalho.',
+    image: '/images/capainteligencia.jpg', // Substitua pelo caminho da capa do livro
+    link: 'https://www.amazon.com.br/dp/B0F1C9WF6D', // Link para o livro na Amazon
+  },
 
 ];
 
