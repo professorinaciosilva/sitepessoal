@@ -1,42 +1,48 @@
 'use client';
 
+import Image from 'next/image'; // Importe o componente Image do Next.js
+
 const books = [
   {
     id: 1,
     title: 'Logaritmos para autodidatas e homeschooling',
-    description: 'Para fornecer uma compreensão abrangente e acessível de Logaritmos para autodidatas ou para aqueles envolvidos no ensino em casa (homeschooling)',
+    description:
+      'Para fornecer uma compreensão abrangente e acessível de Logaritmos para autodidatas ou para aqueles envolvidos no ensino em casa (homeschooling)',
     image: '/images/capalogaritmo.jpg', // Substitua pelo caminho da capa do livro
     link: 'https://www.amazon.com.br/dp/B0DF5W98WT', // Link para o livro na Amazon
   },
   {
     id: 2,
     title: 'Álgebra e teoria dos números para autodidatas e homeschooling',
-    description: 'Para quem deseja explorar o fascinante universo da álgebra e da teoria dos números voltado para autodidatas e famílias que praticam homeschooling',
+    description:
+      'Para quem deseja explorar o fascinante universo da álgebra e da teoria dos números voltado para autodidatas e famílias que praticam homeschooling',
     image: '/images/capaalgebra.jpg', // Substitua pelo caminho da capa do livro
     link: 'https://www.amazon.com.br/dp/B0DPXYND6Z', // Link para o livro na Amazon
   },
   {
     id: 3,
     title: 'Matemática e educação financeira para autodidatas e homeschooling',
-    description: 'O mais completo livro de Educação financeira para autodidatas e famílias que praticam homeschooling. Um guia para estruturar sua vida financeira',
+    description:
+      'O mais completo livro de Educação financeira para autodidatas e famílias que praticam homeschooling. Um guia para estruturar sua vida financeira',
     image: '/images/capafinanceiro.jpeg', // Substitua pelo caminho da capa do livro
     link: 'https://www.amazon.com.br/dp/B0DV9Y4S8R', // Link para o livro na Amazon
   },
   {
     id: 4,
     title: 'Bitcoin para autodidatas e homeschooling',
-    description: 'O guia essencial sobre Bitcoin para iniciantes e entusiastas. Entenda a tecnologia, segurança e como usá-lo na nova economia digital',
+    description:
+      'O guia essencial sobre Bitcoin para iniciantes e entusiastas. Entenda a tecnologia, segurança e como usá-lo na nova economia digital',
     image: '/images/capabitcoin.jpg', // Substitua pelo caminho da capa do livro
     link: 'https://www.amazon.com.br/dp/B0DX3GFGLH', // Link para o livro na Amazon
   },
   {
     id: 5,
     title: 'Inteligência Artificial e Automação para Usuários',
-    description: 'O Guia de Inteligência Artificial para Iniciantes e Entusiastas: Descubra como a tecnologia funciona, aprenda a utilizá-la, explore dicas de prompts e saiba como se posicionar neste novo mercado de trabalho.',
+    description:
+      'O Guia de Inteligência Artificial para Iniciantes e Entusiastas: Descubra como a tecnologia funciona, aprenda a utilizá-la, explore dicas de prompts e saiba como se posicionar neste novo mercado de trabalho.',
     image: '/images/capainteligencia.jpg', // Substitua pelo caminho da capa do livro
     link: 'https://www.amazon.com.br/dp/B0F1C9WF6D', // Link para o livro na Amazon
   },
-
 ];
 
 export default function BooksPage() {
@@ -56,16 +62,18 @@ export default function BooksPage() {
               rel="noopener noreferrer"
               className="flex-shrink-0 mx-auto md:mx-0"
             >
-              <img
+              <Image
                 src={book.image}
                 alt={book.title}
-                className="w-40 h-auto rounded-lg shadow-lg hover:scale-105 transition-transform"
+                width={160} // Largura da imagem
+                height={240} // Altura da imagem
+                className="rounded-lg shadow-lg hover:scale-105 transition-transform"
               />
             </a>
 
             {/* Detalhes do Livro */}
-            <div>
-              <h3 className="text-2xl mb-4 text-center">
+            <div className="text-center md:text-left">
+              <h3 className="text-2xl mb-4">
                 <a
                   href={book.link}
                   target="_blank"
@@ -75,7 +83,7 @@ export default function BooksPage() {
                   {book.title}
                 </a>
               </h3>
-              <p className="text-gray-700 mt-2">
+              <p className="text-gray-700">
                 {book.description}{' '}
                 <a
                   href={book.link}
@@ -91,7 +99,5 @@ export default function BooksPage() {
         ))}
       </div>
     </div>
-
-
   );
 }

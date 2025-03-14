@@ -70,7 +70,7 @@ export default function TextTabs() {
             className={`px-4 py-2 text-sm font-medium ${
               selectedTab === index
                 ? 'bg-white text-gray-900 rounded-t-md hover:bg-white'
-                : 'text-gray-900 bg-yellow-200 hover:bg-white hover:text-gray-900'
+                : 'text-gray-900 bg-blue-100 hover:bg-white hover:text-gray-900'
             }`}
           >
             {tab.label}

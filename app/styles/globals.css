@@ -3,21 +3,17 @@
 @tailwind utilities;
 
 /* Fontes e Configuração */
-@font-face {
-  font-family: 'glamour';
-  src: url('/fonts/glamour.otf') format('otf');
-  font-weight: normal;
-  font-style: normal;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
   @apply antialiased;
 }
 
-h1, h2 {
-  @apply font-glamour;
-}
-h2{
+h2 {
   @apply text-gray-700;
 }
 p {
@@ -43,4 +39,91 @@ header {
 
 footer {
   @apply bg-blue-600 text-white py-4 text-sm mt-10;
+}
+
+/* Animação das nuvens */
+@keyframes cloud-move-slow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw + 300px));
+  }
+}
+
+@keyframes cloud-move-medium {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px));
+  }
+}
+
+@keyframes cloud-move-fast {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw + 130px));
+  }
+}
+
+@keyframes cloud-move-slow-reverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100vw - 280px));
+  }
+}
+
+@keyframes cloud-move-medium-reverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100vw - 180px));
+  }
+}
+
+@keyframes cloud-move-fast-reverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100vw - 120px));
+  }
+}
+
+/* Animação de flutuação para o ícone */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Classe de animação de flutuação */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/*Animation spin*/
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
 }
