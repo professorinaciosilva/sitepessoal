@@ -1,12 +1,19 @@
 "use client";
 
+import { useState } from 'react';
+
 export default function ContactSection() {
+  const [showEmail, setShowEmail] = useState(false);
+  const [showPhone, setShowPhone] = useState(false);
+
+  // Ofuscação do e-mail
   const obfuscateEmail = () => {
     const user = 'professorinaciosilva';
     const domain = 'gmail.com';
     return `${user}@${domain}`;
   };
 
+  // Ofuscação do telefone
   const obfuscatePhone = () => {
     const countryCode = '+55';
     const areaCode = '93';
@@ -14,34 +21,57 @@ export default function ContactSection() {
     return `${countryCode} ${areaCode} ${number}`;
   };
 
+  // Link do WhatsApp
   const obfuscateWhatsAppLink = () => {
     const phone = '5593991315355'; // Número no formato internacional
     return `https://wa.me/${phone}`;
+  };
+
+  // Função para evitar coleta de e-mail por bots
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    const email = obfuscateEmail();
+    window.location.href = `mailto:${email}`;
   };
 
   return (
     <section className="mt-16 text-center">
       <h2 className="text-3xl mb-6 text-center">Contato</h2>
       <div className="text-lg text-gray-700">
-        {/* Email protegido */}
+        {/* Email protegido com interação humana */}
         <p>
           <strong>Email:</strong>{' '}
-          <a
-            href="#"
-            className="text-blue-500 underline hover:text-blue-700"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = `mailto:${obfuscateEmail()}`;
-            }}
-          >
-            {obfuscateEmail()}
-          </a>
+          {showEmail ? (
+            <a
+              href={`mailto:${obfuscateEmail()}`}
+              className="text-blue-500 underline hover:text-blue-700"
+              onClick={handleEmailClick}
+            >
+              {obfuscateEmail()}
+            </a>
+          ) : (
+            <button
+              onClick={() => setShowEmail(true)}
+              className="text-blue-500 underline hover:bg-transparent bg-transparent border-none p-0" // Removido fundo azul
+            >
+              Clique para mostrar
+            </button>
+          )}
         </p>
 
-        {/* Telefone protegido */}
+        {/* Telefone protegido com interação humana */}
         <p className="mt-4">
           <strong>Telefone:</strong>{' '}
-          {obfuscatePhone()}{' '}
+          {showPhone ? (
+            obfuscatePhone()
+          ) : (
+            <button
+              onClick={() => setShowPhone(true)}
+              className="text-blue-500 underline bg-transparent hover:bg-transparent border-none p-0" // Removido fundo azul
+            >
+              Clique para mostrar
+            </button>
+          )}{' '}
           <a
             href={obfuscateWhatsAppLink()}
             target="_blank"

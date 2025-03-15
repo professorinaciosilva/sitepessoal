@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image'; // Importe o componente Image do Next.js
+import Transition from '../components/Transition';
 
 const books = [
   {
@@ -47,6 +48,7 @@ const books = [
 
 export default function BooksPage() {
   return (
+    <div className="w-full">
     <div className="max-w-4xl mx-auto py-8 px-4">
       <h2 className="text-3xl mb-6 text-center">Meus Livros</h2>
       <div className="space-y-8">
@@ -98,6 +100,8 @@ export default function BooksPage() {
           </div>
         ))}
       </div>
+      </div>
+      <Transition />
     </div>
   );
 }

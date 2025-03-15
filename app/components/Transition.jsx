@@ -21,8 +21,8 @@ const Cloud = ({ size, opacity, top, animation, delay, reverse }) => {
   );
 };
 
-const Banner = () => {
-  const [height, setHeight] = useState('70vh');
+const Transition = () => {
+  const [height, setHeight] = useState('50vh');
   
   // Define a altura do banner APENAS no carregamento inicial
   useEffect(() => {
@@ -68,8 +68,8 @@ const Banner = () => {
           {/* SVG Ícone */}
           <div className="w-24 h-24 md:w-32 md:h-32 text-blue-600 animate-float">
             <Image
-              src="/images/banner.svg"
-              alt="banner svg"
+              src="/images/transition.svg"
+              alt="transition svg"
               width={128} // Largura da imagem
               height={128} // Altura da imagem
               className="w-full h-full object-cover"
@@ -77,24 +77,24 @@ const Banner = () => {
           </div>
           {/* Texto */}
           <div className="text-center md:text-left">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 font-poppins text-gray-800">
-              Seu professor de{" "}
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 font-poppins text-gray-800">
+              Conteúdo para{" "}
               <span className="relative">
                 <span className="relative z-10 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  matemática
+                  Homescooling
                 </span>
               </span>
               ,
-            </h1>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+            </h2>
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
               educação e{" "}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 nobreza
               </span>
               .
-            </h2>
+            </h3>
             <p className="text-gray-600 max-w-lg">
-              Transformando conceitos complexos em conhecimento acessível e inspirador para todos os alunos.
+              O melhor para suporte ao pais que querem o melhor para a nova geração.
             </p>
           </div>
         </div>
@@ -105,4 +105,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default Transition;

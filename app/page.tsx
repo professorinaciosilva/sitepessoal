@@ -7,6 +7,7 @@ import SocialLinks from './components/SocialLinks';
 import AboutSection from './components/AboutSection';
 import TextTabs from './components/TextTabs';
 import ContactSection from './components/ContactSection';
+import Transition from './components/Transition';
 
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +34,7 @@ export default function HomePage() {
       <Carousel />
       <SocialLinks />
       <AboutSection />
+      <Transition />
       <TextTabs />
       <ContactSection />
     </>

@@ -1,6 +1,8 @@
 'use client';
-import { useState, useEffect } from 'react';
-import Image from 'next/image'; // Importe o componente Image do Next.js
+import { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
+import useEmblaCarousel from 'embla-carousel-react';
+import { useRecursiveTimeout } from './useRecursiveTimeout'; // Precisaremos criar este hook personalizado
 
 const images = [
   {
@@ -40,39 +42,74 @@ const images = [
   },
 ];
 
+// Hook personalizado para autoplay
+const useRecursiveTimeout = (callback, delay) => {
+  const savedCallback = useCallback(callback, [callback]);
+
+  useEffect(() => {
+    let id = 0;
+    const tick = () => {
+      const timeoutId = setTimeout(() => {
+        id = requestAnimationFrame(tick);
+        savedCallback();
+      }, delay);
+      return timeoutId;
+    };
+    const timeoutId = tick();
+
+    return () => {
+      clearTimeout(timeoutId);
+      cancelAnimationFrame(id);
+    };
+  }, [savedCallback, delay]);
+};
+
 export default function Carousel() {
-  const [current, setCurrent] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState([]);
 
-  // Duplica os itens para criar o efeito de loop infinito
-  const duplicatedImages = [...images, ...images];
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
 
-  const nextSlide = () => {
-    setIsTransitioning(true);
-    setCurrent((prev) => (prev + 1) % images.length);
-  };
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
-  const prevSlide = () => {
-    setIsTransitioning(true);
-    setCurrent((prev) => (prev - 1 + images.length) % images.length);
-  };
+  const scrollTo = useCallback(
+    (index) => {
+      if (emblaApi) emblaApi.scrollTo(index);
+    },
+    [emblaApi]
+  );
 
-  // Efeito para reiniciar a posição do carrossel sem animação
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi, setSelectedIndex]);
+
   useEffect(() => {
-    if (current === images.length) {
-      const timeout = setTimeout(() => {
-        setIsTransitioning(false);
-        setCurrent(0);
-      }, 1000); // Tempo igual à duração da transição
-      return () => clearTimeout(timeout);
+    if (!emblaApi) return;
+    onSelect();
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on('select', onSelect);
+    return () => {
+      emblaApi.off('select', onSelect);
+    };
+  }, [emblaApi, onSelect]);
+
+  // Configuração do autoplay
+  const autoplay = useCallback(() => {
+    if (!emblaApi) return;
+    if (emblaApi.canScrollNext()) {
+      emblaApi.scrollNext();
+    } else {
+      emblaApi.scrollTo(0);
     }
-  }, [current]);
+  }, [emblaApi]);
 
-  // Efeito para autoplay do carrossel
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 5000); // Troca de slide a cada 5 segundos
-    return () => clearInterval(interval);
-  }, [current]);
+  useRecursiveTimeout(autoplay, 5000);
 
   return (
     <section className="w-full max-w-4xl mx-auto mt-8">
@@ -85,15 +122,13 @@ export default function Carousel() {
           <div className="relative mx-auto h-[60vh] aspect-[2/3] overflow-hidden rounded-lg shadow-lg">
             <a
               href="https://www.amazon.com.br/dp/B0F1C9WF6D"
-              target="_blank"
-              rel="noopener noreferrer"
               className="block w-full h-full"
             >
               <Image
                 src="/images/capainteligencia.jpg"
                 alt="Inteligência Artificial e Automação para Usuários"
-                width={200} // Largura da imagem
-                height={300} // Altura da imagem
+                width={200}
+                height={300}
                 className="w-full h-full object-contain"
               />
               <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-sm p-4">
@@ -104,51 +139,59 @@ export default function Carousel() {
           </div>
         </div>
 
-        {/* Carousel Section */}
+        {/* Embla Carousel Section */}
         <div className="w-full md:w-1/2 flex flex-col">
           <h3 className="text-2xl mb-6 text-center">Catálogo</h3>
           <div className="relative mx-auto h-[60vh] aspect-[2/3] overflow-hidden rounded-lg shadow-lg">
-            <div
-              className="flex transition-transform duration-1000 ease-in-out"
-              style={{
-                transform: `translateX(-${current * 100}%)`,
-                transition: isTransitioning ? 'transform 1s ease-in-out' : 'none',
-              }}
-            >
-              {duplicatedImages.map((image, index) => (
-                <div key={index} className="w-full flex-shrink-0 h-full relative">
-                  <a
-                    href={image.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full h-full"
-                  >
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      width={200} // Largura da imagem
-                      height={300} // Altura da imagem
-                      className="w-full h-full object-contain"
-                    />
-                    <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-sm p-4">
-                      {image.description}
-                    </div>
-                  </a>
-                </div>
-              ))}
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex">
+                {images.map((image, index) => (
+                  <div key={index} className="w-full flex-shrink-0 h-full relative">
+                    <a
+                      href={image.link}
+                      className="block w-full h-full"
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        width={200}
+                        height={300}
+                        className="w-full h-full object-contain"
+                      />
+                      <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-sm p-4">
+                        {image.description}
+                      </div>
+                    </a>
+                  </div>
+                ))}
+              </div>
             </div>
+
             <button
-              onClick={prevSlide}
+              onClick={scrollPrev}
               className="absolute left-4 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700"
             >
               &#8592;
             </button>
             <button
-              onClick={nextSlide}
+              onClick={scrollNext}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-blue-600 text-white rounded-full shadow-md hover:bg-blue-700"
             >
               &#8594;
             </button>
+
+            {/* Indicadores de slides (dots) */}
+            <div className="absolute bottom-16 left-0 right-0 flex justify-center gap-2">
+              {scrollSnaps.map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-2 h-2 rounded-full ${
+                    index === selectedIndex ? 'bg-blue-600' : 'bg-gray-400'
+                  }`}
+                  onClick={() => scrollTo(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
@@ -158,15 +201,13 @@ export default function Carousel() {
           <div className="relative mx-auto h-[60vh] aspect-[2/3] overflow-hidden rounded-lg shadow-lg">
             <a
               href="https://www.amazon.com.br/dp/B0DV9Y4S8R"
-              target="_blank"
-              rel="noopener noreferrer"
               className="block w-full h-full"
             >
               <Image
                 src="/images/capafinanceiro.jpeg"
                 alt="Mais Vendido"
-                width={200} // Largura da imagem
-                height={300} // Altura da imagem
+                width={200}
+                height={300}
                 className="w-full h-full object-contain"
               />
               <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-sm p-4">

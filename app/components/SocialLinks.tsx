@@ -17,32 +17,34 @@ export default function SocialLinks() {
   ];
 
   return (
-    <div className="text-center mt-8">
-      <h2 className="text-3xl mb-6 text-center">
-        Siga nossas redes sociais e fique por dentro das novidades!
-      </h2>
-      <p className="text-lg font-light text-gray-700 mb-4">
-        <strong>Youtube</strong>: aulas completas e assuntos explanados de modo detalhado
-      </p>
-      <p className="text-lg font-light text-gray-700 mb-4">
-        <strong>Facebook</strong> e <strong>Instagram</strong>: vídeos curtos de matemática e de divulgação
-      </p>
-      <p className="text-lg font-light text-gray-700 mb-4">
-        <strong>Tiktok</strong> e <strong>Kwai</strong>: vídeos curtos com histórias e curiosidades de matemática
-      </p>
-      <div className="flex justify-center gap-6">
-        {links.map(({ href, icon, label }) => (
-          <a
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-12 h-12 flex items-center justify-center bg-blue-600 text-white rounded-full shadow-md hover:text-white"
-            aria-label={label}
-          >
-            {icon}
-          </a>
-        ))}
+    <div className="max-w-4xl mx-auto my-16">
+      <div className="bg-white rounded-lg shadow-lg p-8">
+        <div className="text-center">
+          <h2 className="text-3xl mb-6 text-center">
+            Siga nossas redes sociais e fique por dentro das novidades!
+          </h2>
+          <p className="text-lg font-light text-gray-700 mb-4">
+            <strong>Youtube</strong>: aulas completas e assuntos explanados de modo detalhado
+          </p>
+          <p className="text-lg font-light text-gray-700 mb-4">
+            <strong>Facebook</strong> e <strong>Instagram</strong>: vídeos curtos de matemática e de divulgação
+          </p>
+          <p className="text-lg font-light text-gray-700 mb-4">
+            <strong>Tiktok</strong> e <strong>Kwai</strong>: vídeos curtos com histórias e curiosidades de matemática
+          </p>
+          <div className="flex justify-center gap-6">
+            {links.map(({ href, icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                className="w-12 h-12 flex items-center justify-center bg-blue-600 text-white rounded-full shadow-md hover:text-white"
+                aria-label={label}
+              >
+                {icon}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
