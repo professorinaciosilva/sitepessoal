@@ -20,7 +20,7 @@ const Header = () => {
         {/* Header principal */}
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="font-bold text-xl md:text-2xl text-blue-700">
+          <Link href="/" className="font-bold text-xl md:text-2xl relative z-10 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Professor Inácio
           </Link>
 

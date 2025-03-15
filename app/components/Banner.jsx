@@ -70,8 +70,8 @@ const Banner = () => {
             <Image
               src="/images/banner.svg"
               alt="banner svg"
-              width={128} // Largura da imagem
-              height={128} // Altura da imagem
+              width={200} // Largura da imagem
+              height={200} // Altura da imagem
               className="w-full h-full object-cover"
             />
           </div>

@@ -36,7 +36,7 @@ export default function Contato() {
   };
   
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4">
+    <div className="flex flex-col items-center justify-center min-h-screen">
       <Transition />
       <h2 className="text-3xl mb-8 text-center">Entre em Contato</h2>
       
