@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
-import { useRecursiveTimeout } from './useRecursiveTimeout'; // Precisaremos criar este hook personalizado
+import { useRecursiveTimeout } from './useRecursiveTimeout';
 
 const images = [
   {
@@ -41,28 +41,6 @@ const images = [
       'O Guia de Inteligência Artificial para Iniciantes e Entusiastas: Descubra como a tecnologia funciona, aprenda a utilizá-la, explore dicas de prompts e saiba como se posicionar neste novo mercado de trabalho.',
   },
 ];
-
-// Hook personalizado para autoplay
-const useRecursiveTimeout = (callback, delay) => {
-  const savedCallback = useCallback(callback, [callback]);
-
-  useEffect(() => {
-    let id = 0;
-    const tick = () => {
-      const timeoutId = setTimeout(() => {
-        id = requestAnimationFrame(tick);
-        savedCallback();
-      }, delay);
-      return timeoutId;
-    };
-    const timeoutId = tick();
-
-    return () => {
-      clearTimeout(timeoutId);
-      cancelAnimationFrame(id);
-    };
-  }, [savedCallback, delay]);
-};
 
 export default function Carousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
