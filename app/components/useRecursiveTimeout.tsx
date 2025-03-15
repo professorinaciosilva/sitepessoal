@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect } from 'react';
 
-export const useRecursiveTimeout = (callback, delay) => {
+export const useRecursiveTimeout = (callback: () => void, delay: number): void => {
   const savedCallback = useCallback(callback, [callback]);
 
   useEffect(() => {

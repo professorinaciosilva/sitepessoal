@@ -4,7 +4,14 @@ import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
 import { useRecursiveTimeout } from './useRecursiveTimeout';
 
-const images = [
+interface ImageItem {
+  src: string;
+  alt: string;
+  link: string;
+  description: string;
+}
+
+const images: ImageItem[] = [
   {
     src: '/images/capalogaritmo.jpg',
     alt: 'logaritmos para autodidatas e homeschooling',
@@ -45,7 +52,7 @@ const images = [
 export default function Carousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState([]);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -56,7 +63,7 @@ export default function Carousel() {
   }, [emblaApi]);
 
   const scrollTo = useCallback(
-    (index) => {
+    (index: number) => {
       if (emblaApi) emblaApi.scrollTo(index);
     },
     [emblaApi]
@@ -123,7 +130,7 @@ export default function Carousel() {
           <div className="relative mx-auto h-[60vh] aspect-[2/3] overflow-hidden rounded-lg shadow-lg">
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex">
-                {images.map((image, index) => (
+                {images.map((image, index: number) => (
                   <div key={index} className="w-full flex-shrink-0 h-full relative">
                     <a
                       href={image.link}
@@ -160,7 +167,7 @@ export default function Carousel() {
 
             {/* Indicadores de slides (dots) */}
             <div className="absolute bottom-16 left-0 right-0 flex justify-center gap-2">
-              {scrollSnaps.map((_, index) => (
+              {scrollSnaps.map((_, index: number) => (
                 <button
                   key={index}
                   className={`w-2 h-2 rounded-full ${
