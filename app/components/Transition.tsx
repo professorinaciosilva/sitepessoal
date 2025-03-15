@@ -2,8 +2,18 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
+// Definindo interface para as props do componente Cloud
+interface CloudProps {
+  size: number;
+  opacity: number;
+  top: string;
+  animation: string;
+  delay: number;
+  reverse: boolean;
+}
+
 // Componente de Nuvem Reutilizável
-const Cloud = ({ size, opacity, top, animation, delay, reverse }) => {
+const Cloud = ({ size, opacity, top, animation, delay, reverse }: CloudProps) => {
   return (
     <Image
       src="/images/clouds.svg"
@@ -39,7 +49,7 @@ const Transition = () => {
   }, []);
   
   // Configurações das nuvens
-  const clouds = [
+  const clouds: CloudProps[] = [
     { size: 300, opacity: 0.4, top: '15%', animation: 'cloud-move-slow', delay: 60, reverse: false },
     { size: 200, opacity: 0.3, top: '40%', animation: 'cloud-move-medium', delay: 40, reverse: false },
     { size: 130, opacity: 0.2, top: '60%', animation: 'cloud-move-fast', delay: 30, reverse: false },
