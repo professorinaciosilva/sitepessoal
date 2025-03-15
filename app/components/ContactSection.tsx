@@ -1,18 +1,17 @@
 "use client";
-
 import { useState } from 'react';
 
 export default function ContactSection() {
   const [showEmail, setShowEmail] = useState(false);
   const [showPhone, setShowPhone] = useState(false);
-
+  
   // Ofuscação do e-mail
   const obfuscateEmail = () => {
     const user = 'professorinaciosilva';
     const domain = 'gmail.com';
     return `${user}@${domain}`;
   };
-
+  
   // Ofuscação do telefone
   const obfuscatePhone = () => {
     const countryCode = '+55';
@@ -20,20 +19,20 @@ export default function ContactSection() {
     const number = '99131-5355';
     return `${countryCode} ${areaCode} ${number}`;
   };
-
+  
   // Link do WhatsApp
   const obfuscateWhatsAppLink = () => {
     const phone = '5593991315355'; // Número no formato internacional
     return `https://wa.me/${phone}`;
   };
-
+  
   // Função para evitar coleta de e-mail por bots
-  const handleEmailClick = (e) => {
+  const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const email = obfuscateEmail();
     window.location.href = `mailto:${email}`;
   };
-
+  
   return (
     <section className="mt-16 text-center">
       <h2 className="text-3xl mb-6 text-center">Contato</h2>
@@ -58,7 +57,6 @@ export default function ContactSection() {
             </button>
           )}
         </p>
-
         {/* Telefone protegido com interação humana */}
         <p className="mt-4">
           <strong>Telefone:</strong>{' '}
