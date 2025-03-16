@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState, MouseEvent } from 'react';
 import SocialLinks from '../components/SocialLinks';
 import Transition from '../components/Transition';
 
@@ -29,7 +29,7 @@ export default function Contato() {
   };
   
   // Função para evitar coleta de e-mail por bots
-  const handleEmailClick = (e) => {
+  const handleEmailClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const email = obfuscateEmail();
     window.location.href = `mailto:${email}`;
